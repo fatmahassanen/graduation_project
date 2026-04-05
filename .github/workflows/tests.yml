@@ -27,7 +27,7 @@ jobs:
         options: --health-cmd="redis-cli ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4  # تم التحديث من v3 لـ v4
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -49,7 +49,7 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4  # تم التحديث من v3 لـ v4
       with:
         node-version: '20'
 
@@ -85,7 +85,7 @@ jobs:
 
     - name: Upload Test Results
       if: failure()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # دي أهم واحدة كانت مسببة المشكلة
       with:
         name: test-results
         path: storage/logs/
